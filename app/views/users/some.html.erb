@@ -1,0 +1,15 @@
+<p><%=@user.first_name %> <%=@user.last_name%>'s Playlist </p>
+<table>
+<tr>
+    <th>Artist</th>
+    <th>Title</th>
+    <th>Times Added</th>
+</tr>
+<% @song.each do |s| %>
+    <tr>
+        <td><%= s.artist %> </td>
+        <td><%= s.title %></td>
+        <td><%=s.users.where(id:@user.id).count%></td>
+    </tr>
+<% end %>
+    </table>

@@ -1,0 +1,13 @@
+<p>Others who added <%=@song.title%> <%=@song.artist %> </p>
+<table>
+<tr>
+    <th>Name</th>
+    <th>Times Added</th>
+</tr>
+<% @users.each do |u| %>
+<tr>
+    <td><a href="/user/songs/<%= u.id %>"><%= u.first_name %><%= u.last_name %><a> </td>
+    <td><%=u.user_songs.where(song_id: @song.id).count%></td>
+</tr>
+<% end %>
+</table>
